@@ -1,0 +1,27 @@
+---
+apiVersion: apps/v1beta2
+kind: Deployment
+metadata:
+  name: vue-hello
+  labels:
+    app: vue-hello
+    service: vue-hello-srv
+spec:
+  selector:
+    matchLabels:
+      app: vue-hello
+      service: vue-hello-srv
+  template:
+    metadata:
+      labels:
+        app: vue-hello
+        service: vue-hello-srv
+    spec:
+      imagePullSecrets:
+        - name: regcred
+      containers:
+        - name: vue-hello
+          image: francescoforestiphoopsit/hello-vue:20191106233500
+  replicas: 1
+  strategy:
+    type: RollingUpdate
