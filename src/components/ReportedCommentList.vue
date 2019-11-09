@@ -40,8 +40,8 @@
         methods: {
             tableFields() {
                 return [
-                    {key: 'key', label: 'Testo'},
-                    {key: 'value', label: 'Segnalazioni'},
+                    {key: 'key', label: 'Text'},
+                    {key: 'value', label: 'N. of reports'},
                     {key: 'action', label: '', tdClass: "px-1 action-column"}
                 ];
             },
