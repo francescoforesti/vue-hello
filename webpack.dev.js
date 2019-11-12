@@ -1,6 +1,6 @@
+const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const VueLoaderPlugin = require('vue-loader/lib/plugin');
-const webpack = require('webpack');
 
 module.exports = {
     entry: './src/main.js',
@@ -11,6 +11,7 @@ module.exports = {
             { test: /\.css$/, use: ['vue-style-loader', 'css-loader']},
         ]
     },
+    mode: 'development',
     devServer: {
         open: true,
         hot: true,
@@ -20,6 +21,9 @@ module.exports = {
             template: './src/index.html',
         }),
         new VueLoaderPlugin(),
-        new webpack.HotModuleReplacementPlugin()
+        new webpack.HotModuleReplacementPlugin(),
+        new webpack.DefinePlugin({
+            'process.env.ROOT_API': '"http://localhost:8080/echo/"'
+        })
     ]
 };

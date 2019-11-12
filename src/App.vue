@@ -68,6 +68,8 @@
     Vue.component('b-input-group-append', BInputGroupAppend);
     Vue.component('b-button', BButton);
 
+    const url = process.env.ROOT_API;
+
     export default {
         data() {
             return {
